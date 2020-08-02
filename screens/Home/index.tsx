@@ -13,9 +13,18 @@ const Home = () => {
             setItems([...items, item]);
           }
         }}
-        testID="Adder"
+        testID="adder"
       />
-      <ItemsList data={items} />
+      <ItemsList
+        data={items}
+        onDeleteItem={(item) => {
+          const index = items.indexOf(item);
+          setItems([
+            ...items.slice(0, index),
+            ...items.slice(index + 1, items.length),
+          ]);
+        }}
+      />
     </View>
   );
 };
