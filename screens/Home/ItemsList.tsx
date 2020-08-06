@@ -28,6 +28,7 @@ export default (props: Props) => {
   const {data, onDeleteItem} = props;
   return (
     <FlatList
+      testID="list"
       keyExtractor={(i) => i}
       data={data}
       renderItem={({item}) => <Item value={item} onDeleteItem={onDeleteItem} />}
