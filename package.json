@@ -24,6 +24,8 @@
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@testing-library/jest-native": "^3.3.0",
+    "@testing-library/react-native": "^7.0.1",
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.1",
     "@types/react-test-renderer": "^16.9.2",
@@ -39,6 +41,15 @@
   },
   "jest": {
     "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|@?react-navigation)"
+    ],
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
